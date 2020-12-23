@@ -74,3 +74,6 @@ fi
 if [ -n "${BASH:-}" -o -n "${ZSH_VERSION:-}" ] ; then
     hash -r
 fi
+
+DB_KEY='j=t+f2a58rs&t$^f3!)ijhulblll&v0nc6ioi-sp5_7j4npts$'
+export DB_KEY
