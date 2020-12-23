@@ -21,11 +21,11 @@ class Query(graphene.ObjectType):
         )
     votes = graphene.List(VoteType)
 
-    def resolve_links(self, info, search=None, first=None, skip=None **kwargs):
+    def resolve_links(self, info, search=None, first=None, skip=None, **kwargs):
         qs = Link.objects.all()
 
         if search:
-            filter=(
+            filter = (
                 Q(url__icontains=search) |
                 Q(description__icontains=search)
             )
@@ -33,6 +33,7 @@ class Query(graphene.ObjectType):
 
         if skip:
             qs = qs[skip:]
+
         if first:
             qs = qs[:first]
 
